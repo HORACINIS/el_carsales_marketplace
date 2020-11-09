@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  make: MyString
+  model: MyString
+  year: 1
+  price: 9.99
+  kilometres: 1
+  has_rego: false
+  purchased: false
+  colour: one
+  user: one
+
+two:
+  make: MyString
+  model: MyString
+  year: 1
+  price: 9.99
+  kilometres: 1
+  has_rego: false
+  purchased: false
+  colour: two
+  user: two

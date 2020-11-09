@@ -1,3 +1,10 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # get 'cars/index'
+  # get 'cars/show'
+
+
+  get 'cars/index', to: 'cars#index'
+  get 'cars/show', to: 'cars#show'
+  resources :cars, only: [:index, :show]
+
 end
