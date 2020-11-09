@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-
+root 'pages#home'
 devise_for :users, controllers: {
   sessions: 'users/sessions', 
   registrations: 'users/registrations' 
 } 
-
 
   get 'cars/index', to: 'cars#index'
   get 'cars/show', to: 'cars#show'
