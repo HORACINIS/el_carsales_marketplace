@@ -9,7 +9,7 @@ class CarsController < ApplicationController
     @cars = Car.find(params[:id])
   end
 
-  def new
+  def create
     new_car =  Car.create(params[:id])
     @cars = new_car
     pp new_car

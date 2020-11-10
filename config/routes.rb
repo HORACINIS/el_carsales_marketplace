@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
 root 'pages#home'
 
-# /users/sign_in
-# /users/sign_up
+# /users/sign_in & /users/sign_up
 devise_for :users, controllers: {
   sessions: 'users/sessions', 
   registrations: 'users/registrations' 
