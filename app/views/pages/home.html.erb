@@ -5,6 +5,7 @@
 </header>
 
 <main class="home-welcome-message">
-    <h3>Show me all cars!</h3>
-    <p>(This is my Home page)</p>
+
+    <%# <button type="button" class="btn btn-primary btn-lg">Show me all cars!</button> %>
+    <%= button_to "Show me all cars!", cars_path, class:"btn btn-primary btn-lg", :method => "get" %>
 </main>
