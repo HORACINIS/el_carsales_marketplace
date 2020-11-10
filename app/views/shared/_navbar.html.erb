@@ -1,0 +1,16 @@
+    <nav class="nav-bar">
+        <ul>
+            <% if user_signed_in?%>
+                <li>Manage account</li>
+                <li>Browse cars</li>
+                <li>About us</li>
+                <li>Sign out</li>
+                <li>Welcome, <%= current_user.name %>!</li>
+            <%else%>
+                <li>Login</li>
+                <li>Sign up</li>
+                <li>Browse cars</li>
+                <li>About us</li>
+            <%end%>
+        </ul>
+    <nav>
