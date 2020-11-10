@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 root 'pages#home'
+get 'contact_us', to: 'pages#contact_us'
 
 # /users/sign_in & /users/sign_up
 devise_for :users, controllers: {

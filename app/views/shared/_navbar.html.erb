@@ -1,8 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        <%= image_tag("car_icon_1.svg") %> 
-    El CARtel
-    </a>
+        <%= link_to(image_tag("car_icon_1.svg"), root_path, class: "navbar-brand") %> 
+        <%= link_to 'El CARtel', root_path, class:"navbar-brand" %> 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -11,10 +9,10 @@
         <ul class="navbar-nav mr-auto">
             <% if user_signed_in?%>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Browse Cars</a>
+                    <%= link_to "Browse Cars", cars_path, class:"nav-link" %> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact us</a>
+                    <%= link_to "Contact Us", contact_us_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -31,16 +29,17 @@
                 </li>
             <%else%>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Log in</a>
+                    <%# <a class="nav-link" href="#">Log in</a> %>
+                    <%= link_to "Log in", new_user_session_path, class:"nav-link" %> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign up</a>
+                    <%= link_to "Sign Up", new_user_registration_path, class:"nav-link" %> 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Browse Cars</a>
+                    <%= link_to "Browse Cars", cars_path, class:"nav-link" %>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact us</a>
+                    <%= link_to "Contact Us", contact_us_path, class:"nav-link" %>
                 </li>
             <%end%>
         </ul>
