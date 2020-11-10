@@ -1,11 +1,27 @@
 
+<main class="home-welcome-message">
+
 <header class="home-title">
     <h1>El CARtel</h1>
     <h2>Second hand cars</h2>
 </header>
 
-<main class="home-welcome-message">
 
-    <%# <button type="button" class="btn btn-primary btn-lg">Show me all cars!</button> %>
+
     <%= button_to "Show me all cars!", cars_path, class:"btn btn-primary btn-lg", :method => "get" %>
+    <br/>
+
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <%= image_tag "car_slide_1.jpg", class: "d-block w-100" %> 
+        </div>
+        <div class="carousel-item">
+            <%= image_tag "car_slide_2.jpg", class: "d-block w-100" %> 
+        </div>
+        <div class="carousel-item">
+            <%= image_tag "car_slide_3.jpg", class: "d-block w-100" %> 
+        </div>
+    </div>
+
 </main>

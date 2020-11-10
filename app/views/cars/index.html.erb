@@ -1,11 +1,19 @@
 <h1>List all cars here</h1>
 
-<main class="cars-index">
+<div class="card" style="width: 18rem;">
     <% @cars.each do |car| %>
-        <ul>
-            <li>Make: <%= car.make %></li>
-            <li>Model: <%= car.model %></li>
-            <li>Year: <%= car.year%></li>
-        </ul>
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+
+            <h5 class="card-title"><%= car.make %></h5>
+            <p class="card-text"><%= car.model %></p>
+            <p class="card-text"><%= car.year%></p>
+            
+            <%= button_to "See", cars_path, class:"btn btn-primary", :method => "get" %>
+            <% if user_signed_in?%>
+                <%= button_to "Buy Me!", cars_path, class:"btn btn-success", :method => "get" %>
+            <% end %>
+        </div>
     <% end %>
-</main>
+    
+</div>
