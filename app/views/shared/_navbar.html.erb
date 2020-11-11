@@ -19,16 +19,15 @@
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Account
                     </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-                    <%# <a class="dropdown-item" href="#">Manage</a> %>
-                    <%= link_to "Manage", user_account_path, class:"dropdown-item" %>
+                        <%= link_to "Your cars", your_cars_path, class:"dropdown-item" %>
+                        <%= link_to "Edit your Account", edit_user_registration_path, class:"dropdown-item" %>
 
-                    <div class="dropdown-divider"></div>
-                    <%= link_to "Sign out", destroy_user_session_path, class:"dropdown-item", method: :delete %>
-                </div>
+                        <div class="dropdown-divider"></div>
+                        <%= link_to "Sign out!", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                    </div>
                 </li>
-
 
                 <li class="nav-link">
                     Welcome, <%= current_user.name %>!

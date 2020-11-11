@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 root 'pages#home'
 get 'contact_us', to: 'pages#contact_us'
-get 'user_account', to: 'pages#user_account'
+get 'your_cars', to: 'pages#your_cars'
 # post 'cars/new', to: 'cars#new'
 
 # /users/sign_in & /users/sign_up
