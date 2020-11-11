@@ -1,5 +1,41 @@
 <%# FORM FOR CREATING NEW CARS HERE! %>
 
-<h1>Create new car</h1>
+<h1>Add your car for sale!</h1>
 
-<h3>Create Form here </h3>
+
+
+<%= form_with model: @cars do |car_form| %>
+    <div class="form-group">
+        <%= car_form.text_field :make, placeholder: 'Make' %>
+    </div>
+
+    <div class="form-group">
+        <%= car_form.text_field :model, placeholder: 'Model' %>
+    </div>
+
+    <div class="form-group">
+        <%= car_form.text_field :year, placeholder: 'Year' %>
+    </div>
+
+    <div class="form-group">
+        <%= car_form.text_field :kilometres, placeholder: 'Kilometres' %>
+    </div>
+
+    <div class="form-group">
+        <%= car_form.text_field :colour, placeholder: 'Colour' %>
+    </div>
+
+    <div class="form-group">
+        <%= car_form.text_field :price, placeholder: 'Price' %>
+    </div>
+
+    <div class="form-group">
+        <%= car_form.label :is_it_registered? %>
+        <%= car_form.text_field :has_rego %>
+    </div>
+
+    <%= car_form.submit "Create" %>
+<% end %>
+
+
+
