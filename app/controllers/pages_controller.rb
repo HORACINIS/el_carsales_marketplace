@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :authenticate_user!, only: [:user_account]
+  before_action :authenticate_user!, only: [:your_cars]
 
   def home
   end
