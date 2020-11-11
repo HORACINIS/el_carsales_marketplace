@@ -4,4 +4,8 @@ class PagesController < ApplicationController
 
   def contact_us
   end
+
+  def user_account
+    # @cars = Car.new
+  end
 end

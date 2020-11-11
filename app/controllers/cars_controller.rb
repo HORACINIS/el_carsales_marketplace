@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   def index
     @cars = Car.all
@@ -9,11 +9,7 @@ class CarsController < ApplicationController
     @cars = Car.find(params[:id])
   end
 
-  def create
-    new_car =  Car.create(params[:id])
-    @cars = new_car
-    pp new_car
+  def new
 
-    redirect_to cars_path
   end
 end
