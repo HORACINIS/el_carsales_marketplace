@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit_car]
+  before_action :authenticate_user!, only: [:create, :create, :edit_car]
 
   def index
     @cars = Car.all
@@ -10,7 +10,7 @@ class CarsController < ApplicationController
     @cars = Car.find(params[:id])
   end
 
-  def new
+  def create
     @cars = Car.new
   end
 

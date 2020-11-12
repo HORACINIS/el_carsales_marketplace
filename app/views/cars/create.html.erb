@@ -1,0 +1,49 @@
+<%# FORM FOR CREATING NEW CARS HERE! %>
+
+<h1>Add your car for sale!</h1>
+
+
+<%= form_with model: @cars do |car| %>
+    <div class="form-group">
+        <%= car.text_field :make, placeholder: 'Make', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.text_field :model, placeholder: 'Model', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.number_field :year, min:1900, max:2021, placeholder: 'Year', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.number_field :kilometres, placeholder: 'Kilometres', required: true %>
+    </div>
+
+    <%# from colours model - has to give colour options %>
+    <div class="form-group">
+        <%= car.text_field :colour, placeholder: 'Colour', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.label :colour %><br>
+        <%= car.collection_select :colour_id, Colour.all, :id, :colour %>
+    </div>
+
+    <div class="form-group">
+        <%= radio_button_tag(:has_rego, true, :checked) %>
+        <%= label_tag(:has_rego, "Registered") %>
+        <%= radio_button_tag(:has_rego, false) %>
+        <%= label_tag(:has_rego, "Unregistered") %>
+    </div>
+
+    <%= car.submit "Create" %>
+
+
+<% end %>
+
+
+
+
+
+
