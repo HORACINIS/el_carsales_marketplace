@@ -12,11 +12,12 @@
                 <h5 class="card-title">$<%= car.price.to_i %></h5>
                 <h5 class="card-title"><%= car.make %></h5>
                 <p class="card-text"><%= car.model %></p>
-                <p class="card-text"><%= car.year%></p>
+                <p class="card-text"><%= car.colour.colour.capitalize%></p>
+                
             </div>
 
             <div class="btn-group" role="group" aria-label="Basic example">
-                <%= link_to "See More", car_path(car.id), class:"btn btn-primary" %>
+                <%= link_to "See More", cars_path(car.id), class:"btn btn-primary" %>
                 <% if user_signed_in?%>
                     <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>
                     <%# <%= button_to "Buy Me!", cars_path, class:"btn btn-success" %>

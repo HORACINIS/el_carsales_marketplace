@@ -3,39 +3,48 @@
 <h1>Add your car for sale!</h1>
 
 
-
-<%= form_with model: @cars do |car_form| %>
+<%= form_with model: @cars do |car| %>
     <div class="form-group">
-        <%= car_form.text_field :make, placeholder: 'Make' %>
+        <%= car.text_field :make, placeholder: 'Make' %>
     </div>
 
     <div class="form-group">
-        <%= car_form.text_field :model, placeholder: 'Model' %>
+        <%= car.text_field :model, placeholder: 'Model' %>
     </div>
 
     <div class="form-group">
-        <%= car_form.text_field :year, placeholder: 'Year' %>
+        <%= car.text_field :year, placeholder: 'Year' %>
     </div>
 
     <div class="form-group">
-        <%= car_form.text_field :kilometres, placeholder: 'Kilometres' %>
+        <%= car.text_field :kilometres, placeholder: 'Kilometres' %>
+    </div>
+
+    <%# from colours model - has to give colour options %>
+    <div class="form-group">
+        <%= car.text_field :colour, placeholder: 'Colour' %>
     </div>
 
     <div class="form-group">
-        <%= car_form.text_field :colour, placeholder: 'Colour' %>
+        <%= car.text_field :price, placeholder: 'Price' %>
     </div>
+
 
     <div class="form-group">
-        <%= car_form.text_field :price, placeholder: 'Price' %>
+        <%# boolean %>
+        <%= radio_button_tag(:has_rego, true) %>
+        <%= label_tag(:age_child, "Registered") %>
+        <%= radio_button_tag(:has_rego, false) %>
+        <%= label_tag(:age_adult, "Unregistered") %>
+
     </div>
 
-    <div class="form-group">
-        <%= car_form.label :is_it_registered? %>
-        <%= car_form.text_field :has_rego %>
-    </div>
+    <%= car.submit "Create" %>
 
-    <%= car_form.submit "Create" %>
+
 <% end %>
+
+
 
 
 
