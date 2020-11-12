@@ -16,9 +16,10 @@
             </div>
 
             <div class="btn-group" role="group" aria-label="Basic example">
-                <%= button_to "See", cars_path, class:"btn btn-primary" %>
+                <%= link_to "See More", car_path(car.id), class:"btn btn-primary" %>
                 <% if user_signed_in?%>
-                    <%= button_to "Buy Me!", cars_path, class:"btn btn-success"%>
+                    <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>
+                    <%# <%= button_to "Buy Me!", cars_path, class:"btn btn-success" %>
                 <% end %>
             </div>
 
