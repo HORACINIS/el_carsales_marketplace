@@ -17,7 +17,7 @@
             </div>
 
             <div class="btn-group" role="group" aria-label="Basic example">
-                <%= link_to "See More", cars_path(car.id), class:"btn btn-primary" %>
+                <%= link_to "See More", car_path(car.id), class:"btn btn-primary" %>
                 <% if user_signed_in?%>
                     <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>
                     <%# <%= button_to "Buy Me!", cars_path, class:"btn btn-success" %>

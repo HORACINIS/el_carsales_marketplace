@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit_car]
+  before_action :car_params, only: [:create, :update]
 
   def index
     @cars = Car.all
@@ -7,15 +8,30 @@ class CarsController < ApplicationController
 
   # displaying a single car based on its id
   def show
-    @cars = Car.find(params[:id])
+    @car = Car.find(params[:id])
   end
 
   def new
-    @cars = Car.new
+    @car = Car.new
+    @colours = Colour.all
   end
 
-  def edit_car
-    @cars = Car.find(params[:id])
+  def create
+    @car = Car.new(car_params)
+    @car.user_id = current_user.id
+    @car.purchased = false
+    redirect_to your_cars_path if @car.save
+  end
+
+  def edit
+    @car = Car.find(params[:id])
+  end
+
+  private
+
+  def car_params
+    params.require(:car).permit(:make, :model, :year, :kilometres, :price, :has_rego, :purchased, :colour_id)
+    
   end
 
 

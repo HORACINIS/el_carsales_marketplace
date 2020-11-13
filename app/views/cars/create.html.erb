@@ -1,0 +1,49 @@
+
+<h1>Add your car for sale!</h1>
+
+<%# <%= render 'car_form.html.erb' %>
+
+
+<%= form_with model: @cars do |car| %>
+    <div class="form-group">
+        <%= car.text_field :make, placeholder: 'Make', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.text_field :model, placeholder: 'Model', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.number_field :year, min:1900, max:2021, placeholder: 'Year', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.number_field :kilometres, placeholder: 'Kilometres', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= car.number_field :price, placeholder: 'Price', required: true %>
+    </div>
+
+
+    <div class="form-group">
+        <%= car.label :colour %><br>
+        <%= car.collection_select :colour_id, Colour.all, :id, :colour %>
+    </div>
+
+    <div class="form-group">
+        <%= car.radio_button :has_rego, true, required: true %>
+        <%= car.label :has_rego, "Registered" %>
+        <%= car.radio_button :has_rego, false %>
+        <%= label :has_rego, "Unregistered" %>
+    </div>
+
+
+        <%= car.hidden_field :user_id, value: @current_user.id %>
+        <%= car.hidden_field :purchased, value: false %>
+
+    <%= car.submit "List my car for sale" %>
+
+
+<% end %>
+
