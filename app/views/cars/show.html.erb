@@ -1,32 +1,32 @@
 
-<h1><%= @cars.make%> <%= @cars.model %></h1>
+<h1><%= @car.make%> <%= @car.model %></h1>
 <h3>Details</h3>
 <div>
     <div class="single-car-display">
         <p>***** HERE GOES ONE OR MORE PHOTOS *****</p>
-        <p><strong>Make </strong><%=  @cars.make %></p>
-        <p><strong>Model </strong><%=  @cars.model %></p>
-        <p><strong>Year </strong><%=  @cars.year %></p>
-        <p><strong>Kilometres </strong><%= @cars.kilometres %></p>
+        <p><strong>Make </strong><%=  @car.make %></p>
+        <p><strong>Model </strong><%=  @car.model %></p>
+        <p><strong>Year </strong><%=  @car.year %></p>
+        <p><strong>Kilometres </strong><%= @car.kilometres %></p>
 
-        <% if @cars.has_rego == true %>
+        <% if @car.has_rego == true %>
             <p><strong>Registration Status : </strong> Currently Registered</p>
         <%else%>
             <p><strong>Registration Status : </strong> Currently Unregistered</p>
         <%end%>
 
-        <p><strong>Location </strong><%= @cars.user.suburb %></p>
+        <p><strong>Location </strong><%= @car.user.suburb %></p>
 
-        <h4><strong>Price </strong>$ <%= @cars.price.to_i %> AU</h4>
+        <h4><strong>Price </strong>$ <%= @car.price.to_i %> AU</h4>
     </div>
 
     <% if user_signed_in?%>
         <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>        
         <div>
             <h3>Contact seller</h3>
-            <p><%= @cars.user.name %> <%= @cars.user.surname %></p>
-            <p><%= @cars.user.phone %></p>
-            <p><%= @cars.user.email %></p>
+            <p><%= @car.user.name %> <%= @car.user.surname %></p>
+            <p><%= @car.user.phone %></p>
+            <p><%= @car.user.email %></p>
         </div>
     <%else%>
 

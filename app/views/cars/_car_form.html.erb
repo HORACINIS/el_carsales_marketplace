@@ -1,9 +1,4 @@
 
-<h1>Add your car for sale!</h1>
-
-<%# <%= render 'car_form.html.erb' %>
-
-
 <%= form_with model: @cars do |car| %>
     <div class="form-group">
         <%= car.text_field :make, placeholder: 'Make', required: true %>
@@ -46,4 +41,3 @@
 
 
 <% end %>
-

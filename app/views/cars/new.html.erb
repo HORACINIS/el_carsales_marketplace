@@ -1,0 +1,45 @@
+<h1>Add your  for sale!</h1>
+
+<%# <%= render '_form.html.erb' %>
+
+
+<%= form_with model: @car do |f| %>
+    <div class="form-group">
+        <%= f.text_field :make, placeholder: 'Make', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.text_field :model, placeholder: 'Model', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.number_field :year, min:1900, max:2021, placeholder: 'Year', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.number_field :kilometres, placeholder: 'Kilometres', required: true %>
+    </div>
+
+    <div class="form-group">
+        <%= f.number_field :price, placeholder: 'Price', required: true %>
+    </div>
+
+
+    <div class="form-group">
+        <%= f.label :colour %><br>
+        <%= f.collection_select :colour_id, Colour.all, :id, :colour %>
+    </div>
+
+    <div class="form-group">
+        <%= f.radio_button :has_rego, true %>
+        <%= f.label :has_rego, "Registered" %>
+        <%= f.radio_button :has_rego, false %>
+        <%= f.label :has_rego, "Unregistered" %>
+    </div>
+
+
+
+    <%= f.submit %>
+
+
+<% end %>
