@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:your_cars]
-  # before_action :your_cars
+  before_action :your_cars
+
   def home
   end
 
@@ -8,6 +9,18 @@ class PagesController < ApplicationController
   end
 
   def your_cars
-    @all_cars = Car.all
+    all_cars = Car.all
+    @for_sale = []
+    @purchased = []
+    
+    all_cars.each do |car|
+      if car.user_id == current_user.id
+          if  car.purchased
+            @purchased << [car.make, car.model, car.year, car.price, car.purchased]
+          end
+          @for_sale << [car.make, car.model, car.year, car.price, car.purchased]
+      end
+    end
+
   end
 end

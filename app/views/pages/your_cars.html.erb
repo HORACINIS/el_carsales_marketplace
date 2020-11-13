@@ -4,18 +4,50 @@
 
 
 <h3>List of current cars listed for sale here!</h3>
-   <p> <%= current_user.inspect %> </p>
 
+<div class="card-group">
 
-    <%= @all_cars.each do |car| %>
-        <% if car.user_id == current_user.id %>
-        <p><%= car.make %></p>
+    <% @for_sale.each do |make, model, year, price, purchased| %>
+        <% if purchased == false %>
+            <div class="card">
+                
+                <%# Here goes the image in rails format - image via id for each car %>
+                <img src="..." class="card-img-top" alt="...">                        
+
+                <div class="card-body">
+                    <h6 class="card-title">Make <%= make %></h6>
+                    <h6 class="card-title">Model <%= model %></h6>
+                    <h6 class="card-text">Year <%= year %></h6>
+                    <h6 class="card-text">Price $ <%= price.to_i %></h6>
+                </div>
+            </div>
         <%end%>
-    <% end %>
-
-
-
-
-
+    <%end%>
+</div>
+    
 <br/>
-<h3>List of cars purchased here!</h3>
+
+<h3>List of cars you have purchased</h3>
+
+<div class="card-group">
+
+    <% @for_sale.each do |make, model, year, price, purchased| %>
+        <% if purchased %>
+            <div class="card">
+                
+                <%# Here goes the image in rails format - image via id for each car %>
+                <img src="..." class="card-img-top" alt="...">                        
+
+                <div class="card-body">
+                    <h6 class="card-title">Make <%= make %></h6>
+                    <h6 class="card-title">Model <%= model %></h6>
+                    <h6 class="card-text">Year <%= year %></h6>
+                    <h6 class="card-text">Price $ <%= price.to_i %></h6>
+                </div>
+            </div>
+        <%end%>
+    <%end%>
+</div>
+
+
+
