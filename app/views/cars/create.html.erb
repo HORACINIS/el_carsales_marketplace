@@ -3,7 +3,7 @@
 <h1>Add your car for sale!</h1>
 
 
-<%= form_with model: @cars_create do |car| %>
+<%= form_with model: @cars do |car| %>
     <div class="form-group">
         <%= car.text_field :make, placeholder: 'Make', required: true %>
     </div>
@@ -47,5 +47,7 @@
 <% end %>
 
 
-<%= @current_user %>
+<p>CURRENT USER <%= @current_user.inspect %></p>
+<p>CAR <%= @cars.inspect %></p>
+<p>COLOUR <%= @colours %></p>
 

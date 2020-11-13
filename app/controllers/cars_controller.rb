@@ -1,6 +1,6 @@
 class CarsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :edit_car, :car_params]
-  # before_action :car_params
+  before_action :car_params
 
   def index
     @cars = Car.all
@@ -14,7 +14,8 @@ class CarsController < ApplicationController
   def create
     @cars = Car.new
     @current_user = current_user
-    # @cars_create = Car.create(car_params)
+    @colours = Colour.all
+    @cars_create = Car.create(car_params)
     # redirect_to cars_create_path
   end
 
@@ -22,9 +23,9 @@ class CarsController < ApplicationController
     @cars = Car.find(params[:id])
   end
 
-  # def car_params
-  #   params.require(:car).permit(:make, :model, :year, :kilometres, :price, :colour_id, :has_rego, :purchased, :user_id)
-  # end
+  def car_params
+    params.require(:car).permit(:make, :model, :year, :kilometres, :price, :colour_id, :has_rego, :purchased, :user_id)
+  end
 
 
 end
