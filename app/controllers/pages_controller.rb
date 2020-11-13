@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!, only: [:your_cars]
-
+  # before_action :your_cars
   def home
   end
 
@@ -8,6 +8,6 @@ class PagesController < ApplicationController
   end
 
   def your_cars
-
+    @all_cars = Car.all
   end
 end
