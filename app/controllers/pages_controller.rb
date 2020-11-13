@@ -18,7 +18,7 @@ class PagesController < ApplicationController
           if  car.purchased
             @purchased << [car.make, car.model, car.year, car.price, car.purchased]
           end
-          @for_sale << [car.make, car.model, car.year, car.price, car.purchased]
+          @for_sale << [car.make, car.model, car.year, car.price, car.purchased, car.id]
       end
     end
 

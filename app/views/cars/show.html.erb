@@ -21,13 +21,18 @@
     </div>
 
     <% if user_signed_in?%>
-        <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>        
-        <div>
+        <% if current_user.id != @car.user_id %>
+            <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>        
             <h3>Contact seller</h3>
-            <p><%= @car.user.name %> <%= @car.user.surname %></p>
-            <p><%= @car.user.phone %></p>
-            <p><%= @car.user.email %></p>
-        </div>
+        <%else%>
+        <button type="button" class="btn btn-secondary">Cannot Buy</button>
+            <h3>Seller</h3>
+        <%end%>
+            <div>
+                <p><%= @car.user.name %> <%= @car.user.surname %></p>
+                <p><%= @car.user.phone %></p>
+                <p><%= @car.user.email %></p>
+            </div>
     <%else%>
 
         <%= link_to "Login to buy!", new_user_session_path, class:"btn btn-success" %>

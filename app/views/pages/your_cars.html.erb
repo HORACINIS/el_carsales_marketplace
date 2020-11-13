@@ -7,7 +7,7 @@
 
 <div class="card-group">
 
-    <% @for_sale.each do |make, model, year, price, purchased| %>
+    <% @for_sale.each do |make, model, year, price, purchased, id| %>
         <% if purchased == false %>
             <div class="card">
                 
@@ -19,6 +19,10 @@
                     <h6 class="card-title">Model <%= model %></h6>
                     <h6 class="card-text">Year <%= year %></h6>
                     <h6 class="card-text">Price $ <%= price.to_i %></h6>
+                </div>
+
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <%= link_to "See More", car_path(id), class:"btn btn-primary" %>
                 </div>
             </div>
         <%end%>
