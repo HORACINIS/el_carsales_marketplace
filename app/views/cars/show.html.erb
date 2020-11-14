@@ -3,7 +3,7 @@
 <h3>Details</h3>
 <div>
     <div class="single-car-display">
-        <p>***** HERE GOES ONE OR MORE PHOTOS *****</p>
+        <%= image_tag @car.picture, class:"card-img-top" if @car.picture.attached? %>
         <p><strong>Make </strong><%=  @car.make %></p>
         <p><strong>Model </strong><%=  @car.model %></p>
         <p><strong>Year </strong><%=  @car.year %></p>

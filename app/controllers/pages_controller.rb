@@ -14,11 +14,13 @@ class PagesController < ApplicationController
     @purchased = []
     
     all_cars.each do |car|
-      if car.user_id == current_user.id
-          if  car.purchased
-            @purchased << [car.make, car.model, car.year, car.price, car.purchased]
-          end
-          @for_sale << [car.make, car.model, car.year, car.price, car.purchased, car.id]
+      if user_signed_in?
+        if car.user_id == current_user.id
+            if  car.purchased
+              @purchased << [car.make, car.model, car.year, car.price, car.purchased]
+            end
+            @for_sale << [car.make, car.model, car.year, car.price, car.purchased, car.id]
+        end
       end
     end
 

@@ -37,6 +37,11 @@
         <%= f.label :has_rego, "Unregistered" %>
     </div>
 
+     <div class="form-group">
+        <%= f.label :picture %><br>
+        <%= f.file_field :picture, accept: 'image/png, image/jpg, image/jpeg' %>
+    </div>
+
 
 
     <%= f.submit %>
