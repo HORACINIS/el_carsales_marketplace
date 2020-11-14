@@ -6,14 +6,12 @@
         <% if !car.purchased %>
             <div class="card">
 
-                <%# Here goes the image in rails format - image via id for each car %>
-                <%= image_tag "https://d3lp4xedbqa8a5.cloudfront.net/s3/digital-cougar-assets/whichcar/2018/05/14/-1/subaru-wrx-sti-offroad.jpg", class:"card-img-top"  %>
+                <%= image_tag car.picture, class:"card-img-top" if car.picture.attached? %>
                 <div class="card-body">
                     <h5 class="card-title">$<%= car.price.to_i %></h5>
                     <h5 class="card-title"><%= car.make %></h5>
                     <p class="card-text"><%= car.model %></p>
-                    <p class="card-text"><%= car.colour.colour.capitalize%></p>
-                    
+                    <p class="card-text"><%= car.colour.colour.capitalize%></p>                    
                 </div>
 
                 <div class="btn-group" role="group" aria-label="Basic example">

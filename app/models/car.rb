@@ -1,6 +1,7 @@
 class Car < ApplicationRecord
   belongs_to :colour
   belongs_to :user
+  has_one_attached :picture
 
   validates :make, presence: true
   validates :model, presence: true
