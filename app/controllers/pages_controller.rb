@@ -17,9 +17,9 @@ class PagesController < ApplicationController
       if user_signed_in?
         if car.user_id == current_user.id
             if  car.purchased
-              @purchased << [car.make, car.model, car.year, car.price, car.purchased]
+              @purchased << [car.make, car.model, car.year, car.price, car.purchased, car.id, car.picture]
             end
-            @for_sale << [car.make, car.model, car.year, car.price, car.purchased, car.id]
+            @for_sale << [car.make, car.model, car.year, car.price, car.purchased, car.id, car.picture]
         end
       end
     end
