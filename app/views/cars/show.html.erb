@@ -22,7 +22,23 @@
 
     <% if user_signed_in?%>
         <% if current_user.id != @car.user_id %>
-            <%= link_to "Buy Me!", cars_path, class:"btn btn-success" %>        
+
+            <%# ------ Stripe ------ %>
+            <button data-stripe="payment" class="btn btn-success">Buy Me! <%= number_to_currency(@car.price) %></button>
+
+            <%= link_to 'Back', cars_path %>
+            <script src="https://js.stripe.com/v3/"></script>
+
+            <script>
+                document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
+                    const stripe = Stripe("<%= Rails.application.credentials.dig(:stripe, :public_key) %>");
+                    stripe.redirectToCheckout({
+                        sessionId: "<%= @session_id %>"
+                    });
+                });
+            </script>
+
+
             <h3>Contact seller</h3>
         <%else%>
         <button type="button" class="btn btn-secondary">Cannot Buy</button>

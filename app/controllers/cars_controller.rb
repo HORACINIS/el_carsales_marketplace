@@ -9,7 +9,34 @@ class CarsController < ApplicationController
   # displaying a single car based on its id
   def show
     @car = Car.find(params[:id])
+    if user_signed_in?
+      # ----------STRIPE ---------
+      session = Stripe::Checkout::Session.create(
+        payment_method_types: ['card'],
+        customer_email: current_user.email,
+        line_items: [ 
+          {
+            name: @car.make,
+            description: @car.model,
+            images: [@car.picture],
+            amount: @car.price.to_i,
+            currency: 'aud',
+            quantity: 1
+          } 
+        ],
+          payment_intent_data: {
+            metadata: {
+            car_id: @car.id,
+            user_name: current_user.name
+            }
+          },
+        success_url: "#{root_url}payments/success?carId=#{@car.id}",
+        cancel_url: "#{root_url}cars"
+      )
+      @session_id = session.id
+    end
   end
+
 
   def new
     @car = Car.new
@@ -32,6 +59,5 @@ class CarsController < ApplicationController
   def car_params
     params.require(:car).permit(:make, :model, :year, :kilometres, :price, :has_rego, :purchased, :colour_id, :picture)
   end
-
 
 end
