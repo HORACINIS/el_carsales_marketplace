@@ -8,7 +8,7 @@
 
                 <%= image_tag car.picture, class:"card-img-top" if car.picture.attached? %>
                 <div class="card-body">
-                    <h5 class="card-title">$<%= car.price %></h5>
+                    <h5 class="card-title">$<%= car.price.to_i %></h5>
                     <h5 class="card-title"><%= car.make %></h5>
                     <p class="card-text"><%= car.model %></p>
                     <p class="card-text"><%= car.colour.colour.capitalize%></p>                    

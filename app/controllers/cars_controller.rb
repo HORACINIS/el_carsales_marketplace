@@ -19,7 +19,7 @@ class CarsController < ApplicationController
             name: @car.make,
             description: @car.model,
             images: [@car.picture],
-            amount: @car.price.to_i,
+            amount: (@car.price * 100),
             currency: 'aud',
             quantity: 1
           } 
