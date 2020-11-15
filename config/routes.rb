@@ -13,8 +13,5 @@ Rails.application.routes.draw do
   resources :cars#, path: 'auto'
   resources :colours, only: [:index]
   resources :payments
-  
-
-
 
 end
