@@ -84,6 +84,7 @@ test:
 #
 production:
   <<: *default
-  database: el_carsales_marketplace_production
+  database: url: <%= ENV['DATABASE_URL'] %>
+  # database: el_carsales_marketplace_production
   username: el_carsales_marketplace
   password: <%= ENV['EL_CARSALES_MARKETPLACE_DATABASE_PASSWORD'] %>
