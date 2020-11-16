@@ -1,0 +1,16 @@
+
+
+
+
+<div class="jumbotron">
+   <%= image_tag "tick.png" %>
+  <h1 class="display-4">You're payment has been successful!</h1>
+  <p class="lead">Congratulations, <%= current_user.name%>!</p>
+  <hr class="my-4">
+   <%= image_tag "car_icon_1.svg" %>
+  <p>Thank you for using ElCARtel!</p>
+  <%= link_to "Go back to the Homepage!", cars_path, class:"btn btn-primary btn-lg" %>
+  <%# <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> %>
+</div>
+
+
