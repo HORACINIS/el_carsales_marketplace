@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :authenticate_user!, only: [:create, :edit_car]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
   before_action :car_params, only: [:create, :update]
 
   def index
@@ -52,7 +52,16 @@ class CarsController < ApplicationController
   end
 
   def edit
+    # @car = Car.find(params[:id])
+  end
+
+  def destroy
     @car = Car.find(params[:id])
+    @car.destroy
+    respond_to do |format|
+      format.html { redirect_to cars_url, notice: 'Car was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   private
@@ -60,5 +69,5 @@ class CarsController < ApplicationController
   def car_params
     params.require(:car).permit(:make, :model, :year, :kilometres, :price, :has_rego, :purchased, :colour_id, :picture)
   end
-
+    
 end
