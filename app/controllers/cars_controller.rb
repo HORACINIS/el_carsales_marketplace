@@ -18,7 +18,8 @@ class CarsController < ApplicationController
           {
             name: @car.make,
             description: @car.model,
-            images: [@car.picture],
+            images: ['https://thumbs.dreamstime.com/z/writing-note-showing-need-loanquestion-business-concept-offering-money-demonstratingal-finances-photo-showcasing-157951074.jpg'],
+            # images: [@car.picture],
             amount: (@car.price * 100),
             currency: 'aud',
             quantity: 1

@@ -25,6 +25,7 @@ Colour.create (
         { colour: 'Lime' }, 
         { colour: 'Beige' },
         { colour: 'Aqua' }, 
-        { colour: 'Maroon' }
+        { colour: 'Maroon' },
+        { colour: 'Red' }
     ]
 )
