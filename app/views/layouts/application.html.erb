@@ -15,10 +15,13 @@
   <body>
 
     <%= render 'shared/navbar.html.erb' %>
+    <% if notice %>
+      <%= render 'layouts/notice'%>
+    <% elsif alert%>
+      <%= render 'layouts/alert'%>
+    <%end%>
 
-    <div class="container">      
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    <div class="container">     
       <div style="text-align: center;">
         <%= image_tag "El_CARsale_logo.jpg", style:"width: 40%" %>
       </div>
