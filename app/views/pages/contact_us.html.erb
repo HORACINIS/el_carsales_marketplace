@@ -1,56 +1,5 @@
-<h1>Contact Us</h1>
-
-
-
-
-
-
-
-
-
-<%# <div class="d-inline-flex p-2 bd-highlight">I'm an inline flexbox container!</div> %>
-
-
-
-<%# <div class="container">
-  <div class="row">
-    <div class="col">Column 1</div>
-    <div class="col">Column 2</div>
-    <div class="col">Column 3</div>
-    <div class="w-100"></div>    
-    <div class="col">Column 4</div>
-    <div class="col">Column 5</div>
-    <div class="col">Column 6</div>
-  </div>
-</div> %>
-
-
-<div class="card" style="width: 18rem;">
-  <div class="card-body">
-  <%= image_tag "https://www.google.com.au/url?sa=i&url=https%3A%2F%2Fwww.extremetech.com%2Fextreme%2F303740-car-of-the-year-extremetechs-best-cars-for-2020&psig=AOvVaw0gMrsZo03VX5JqZkDVTzkR&ust=1605653656701000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCODxl5GUiO0CFQAAAAAdAAAAABAH", class:"card-img-top"
-    <h5 class="card-title">Special title treatment</h5>
-    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
+<div style="background-color:red;">
+    <h3 style="color:white;">Contact Us</h3>
 </div>
 
-
-<div class="card">
-
-    <% @for_sale.each do |make, model, year, price, purchased, id, picture| %>
-        <% if purchased %>
-            <div class="card">                
-                <%= image_tag picture, class:"card-img-top" if picture.attached? %>
-
-                <div class="card-body ">
-                    <h6 class="card-title">Make <%= make %></h6>
-                    <h6 class="card-title">Model <%= model %></h6>
-                    <h6 class="card-text">Year <%= year %></h6>
-                    <h6 class="card-text">Price $ <%= price.to_i %></h6>
-                    <h6 class="card-text">SOLD!</h6>
-                </div>
-            </div>
-            
-        <%end%>
-    <%end%>
-</div>
+<%= image_tag "under_contruction.jpg"%>
