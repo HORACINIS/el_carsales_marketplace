@@ -12,7 +12,6 @@
       <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-
   <body>
 
     <%= render 'shared/navbar.html.erb' %>
@@ -20,14 +19,11 @@
     <div class="container">      
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+      <div style="text-align: center;">
+        <%= image_tag "El_CARsale_logo.jpg", style:"width: 40%" %>
+      </div>
       <%= yield %>
     </div>
-  
-    
-
-   
-  
-
   </body>
 </html>
 
