@@ -5,23 +5,26 @@
 
 <h3>List of current cars listed for sale here!</h3>
 
-<div class="card-group">
+<div class="card-group row mt-5">
 
     <% @for_sale.each do |make, model, year, price, purchased, id, picture| %>
         <% if purchased == false %>
-            <div class="card">
-                
-                <%= image_tag picture, class:"card-img-top" if picture.attached? %>                       
+            <div class="col-md-4 mt-5">
+                <div class="card">
+                    
+                    <%= image_tag picture, class:"card-img-top" if picture.attached? %>                       
 
-                <div class="card-body">
-                    <h6 class="card-title">Make <%= make %></h6>
-                    <h6 class="card-title">Model <%= model %></h6>
-                    <h6 class="card-text">Year <%= year %></h6>
-                    <h6 class="card-text">Price $ <%= price.to_i %></h6>
-                </div>
+                    <div class="card-body">
+                        <h6 class="card-title">Make <%= make %></h6>
+                        <h6 class="card-title">Model <%= model %></h6>
+                        <h6 class="card-text">Year <%= year %></h6>
+                        <h6 class="card-text">Price $ <%= price.to_i %></h6>
+                    </div>
 
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <%= link_to "See More", car_path(id), class:"btn btn-primary" %>
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= link_to "See More", car_path(id), class:"btn btn-primary" %>
+                    </div>
+                    
                 </div>
             </div>
         <%end%>
@@ -32,27 +35,27 @@
 
 <h3>List of cars you have purchased</h3>
 
-<div class="card-group">
+<div class="card-group row mt-5">
 
     <% @for_sale.each do |make, model, year, price, purchased, id, picture| %>
         <% if purchased %>
-            <div class="card">
-                
-                <%# Here goes the image in rails format - image via id for each car %>
-                <%= image_tag picture, class:"card-img-top" if picture.attached? %>
-                <%# <img src="..." class="card-img-top" alt="...">                         %>
+            <div class="col-md-4 mt-5">
+                <div class="card">                
+                    <%= image_tag picture, class:"card-img-top" if picture.attached? %>
 
-                <div class="card-body">
-                    <h6 class="card-title">Make <%= make %></h6>
-                    <h6 class="card-title">Model <%= model %></h6>
-                    <h6 class="card-text">Year <%= year %></h6>
-                    <h6 class="card-text">Price $ <%= price.to_i %></h6>
-                    <h6 class="card-text">SOLD!</h6>
+                    <div class="card-body ">
+                        <h6 class="card-title">Make <%= make %></h6>
+                        <h6 class="card-title">Model <%= model %></h6>
+                        <h6 class="card-text">Year <%= year %></h6>
+                        <h6 class="card-text">Price $ <%= price.to_i %></h6>
+                        <h6 class="card-text">SOLD!</h6>
+                    </div>
+
                 </div>
-            </div>
+            </div>            
         <%end%>
     <%end%>
+
 </div>
 
-
-
+<br/>
