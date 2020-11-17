@@ -1,59 +1,56 @@
 <h1>Listing all second hand cars</h1>
 
-<div class="card-group">
+<div class="card-group row mt-5">
 
     <% @cars.each do |car| %>
 
         <% if !car.purchased %>
-            
+    
+            <div class="col-md-4 mt-5">
+                <div class="card">                        
 
+                    <%= image_tag car.picture, class:"card-img-top" if car.picture.attached? %>
 
+                    <div class="card-body">
+                        <h5 class="card-title">$<%= car.price.to_i %></h5>
+                        <h5 class="card-title"><%= car.make %></h5>
+                        <p class="card-text"><%= car.model %></p>
+                        <p class="card-text"><%= car.colour.colour.capitalize%></p>                    
+                    </div>
 
-            <div class="card  p-2 bd-highlight">
-            
+                    <div class="btn-group" role="group" aria-label="Basic example">
+                        <%= link_to "See More", car_path(car.id), class:"btn btn-primary" %>
+                        <% if user_signed_in?%>
+                            <% if current_user.id == car.user_id %>
 
-                <%= image_tag car.picture, class:"card-img-top" if car.picture.attached? %>
-                <div class="card-body">
-                    <h5 class="card-title">$<%= car.price.to_i %></h5>
-                    <h5 class="card-title"><%= car.make %></h5>
-                    <p class="card-text"><%= car.model %></p>
-                    <p class="card-text"><%= car.colour.colour.capitalize%></p>                    
-                </div>
+                                <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                                Your car is live!
+                                </button>
 
-                <div class="btn-group" role="group" aria-label="Basic example">
-                    <%= link_to "See More", car_path(car.id), class:"btn btn-primary" %>
-                    <% if user_signed_in?%>
-                        <% if current_user.id == car.user_id %>
-
-
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
-                        Your car is live!
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Car sale status</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Car sale status</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Your car is listed and can be viewed by thousands of potential buyers
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="modal-body">
-                                    Your car is listed and can be viewed by thousands of potential buyers
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                </div>
-                                </div>
-                            </div>
-                        </div>
 
-
-                        <%end%>
-                    <% end %>
+                            <%end%>
+                        <% end %>
+                    </div>
                 </div>
             </div>
         <%end%>
