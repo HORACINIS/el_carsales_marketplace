@@ -2,7 +2,7 @@
 <%= link_to 'Back', cars_path, class:"btn btn-primary"%>
 <h1><%= @car.make%> <%= @car.model %></h1>
 <h3>Details</h3>
-<div class="card w-50">
+<div class="card w-100">
     <div class="single-car-display">
         <%= image_tag @car.picture, class:"card-img-top" if @car.picture.attached? %>
         <h4><strong>Price </strong>$ <%= @car.price.to_i %> AU</h4>
@@ -25,7 +25,7 @@
         <% if current_user.id != @car.user_id %>
 
             <%# ------ Stripe ------ %>
-            <button data-stripe="payment" class="btn btn-success">Buy Me! <%= number_to_currency(@car.price) %></button>
+            <button data-stripe="payment" class="btn btn-success">BUY ME!  <%= number_to_currency(@car.price) %> <%= image_tag "credit-card.png" %></button>
 
             <script src="https://js.stripe.com/v3/"></script>
 
@@ -39,7 +39,7 @@
             </script>
 
 
-            <h3>Contact seller</h3>
+            <h2><%= image_tag 'contact_seller_access_icon.png' %> Contact seller</h2>
         <%else%>
             <button type="button" class="btn btn-secondary">Cannot Buy</button>
             <%= link_to 'Delete', @car, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
@@ -48,9 +48,9 @@
             <h3>Seller</h3>
         <%end%>
             <div>
-                <p><%= @car.user.name %> <%= @car.user.surname %></p>
-                <p><%= @car.user.phone %></p>
-                <p><%= @car.user.email %></p>
+                <p><strong><%= @car.user.name %> <%= @car.user.surname %></strong></p>
+                <p><strong><%= @car.user.phone %></strong></p>
+                <p><strong><%= @car.user.email %></strong></p>
             </div>
     <%else%>
 
@@ -63,13 +63,13 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Attention!</h5>
+                        <h5 class="modal-title" id="staticBackdropLabel"><%= image_tag 'warning_icon.png' %> Attention!</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                    You cannot purchase a car if you are not logged in!
+                    <strong>You cannot purchase a car if you are not logged in!</strong>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -80,8 +80,8 @@
         </div>
 
         <div>
-            <h3>Contact seller</h3>
-            <p>You need to login to see seller's details</p>
+            <h3><%= image_tag "contact_seller_no_access_icon.png" %> Contact seller</h3>
+            <p><strong>You need to login to see the seller's details</strong></p>
         </div>
     <%end%>
 
