@@ -2,7 +2,7 @@
 <%= link_to 'Back', cars_path, class:"btn btn-primary"%>
 <h1><%= @car.make%> <%= @car.model %></h1>
 <h3>Details</h3>
-<div class="card w-60">
+<div class="card w-50">
     <div class="single-car-display">
         <%= image_tag @car.picture, class:"card-img-top" if @car.picture.attached? %>
         <h4><strong>Price </strong>$ <%= @car.price.to_i %> AU</h4>
